@@ -15,6 +15,7 @@ class Measurement(models.Model):
     temperature = models.IntegerField(verbose_name='Temperature')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    image = models.ImageField(null=True, blank=True, upload_to='measurement_images/')
 
     def __str__(self):
         return f"{self.sensor.name} - {self.temperature}°C (created at {self.created_at}, updated at {self.updated_at})"

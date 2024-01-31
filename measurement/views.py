@@ -4,35 +4,40 @@ from rest_framework.response import Response
 from .models import Measurement, Sensor
 from .serializers import MeasurementSerializer, SensorDetailSerializer
 
+
 # TODO: опишите необходимые обработчики, рекомендуется использовать generics APIView классы:
 # TODO: ListCreateAPIView, RetrieveUpdateAPIView, CreateAPIView
 
 # Создать датчик
-#POST
+# POST
 class CreateSensorView(generics.CreateAPIView):
     queryset = Sensor.objects.all()
     serializer_class = SensorDetailSerializer
 
+
 # Изменить датчик
-#UPDATE
+# PUT
 class UpdateSensorView(generics.UpdateAPIView):
     queryset = Sensor.objects.all()
     serializer_class = SensorDetailSerializer
 
+
 # Добавить измерение
-#UPDATE
+# UPDATE
 class AddMeasurementView(generics.CreateAPIView):
     queryset = Measurement.objects.all()
     serializer_class = MeasurementSerializer
 
+
 # Получить список датчиков
-#GET
+# GET
 class GetSensorListView(generics.ListAPIView):
     queryset = Sensor.objects.all()
     serializer_class = SensorDetailSerializer
 
+
 # Получить информацию по конкретному датчику
-#GET
+# GET
 class GetSensorInfoView(generics.RetrieveAPIView):
     queryset = Sensor.objects.all()
     serializer_class = SensorDetailSerializer

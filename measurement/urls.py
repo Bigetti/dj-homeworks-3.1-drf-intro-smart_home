@@ -6,7 +6,7 @@ urlpatterns = [
     path('update-sensor/<int:pk>/', UpdateSensorView.as_view(), name='update_sensor'),
     path('add-measurement/', AddMeasurementView.as_view(), name='add_measurement'),
     path('get-sensor-list/', GetSensorListView.as_view(), name='get_sensor_list'),
-    path('get-sensor-info/<int:pk>/', GetSensorInfoView.as_view(), name='get_sensor_info'),
+    path('get-sensor-info/<int:id>/', GetSensorInfoView.as_view(), name='get_sensor_info'),
     # Другие маршруты...
 ]
 
