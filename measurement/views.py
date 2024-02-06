@@ -15,15 +15,24 @@ class CreateSensorView(generics.CreateAPIView):
     serializer_class = SensorDetailSerializer
 
 
-# Изменить датчик
-# PUT
-class UpdateSensorView(generics.UpdateAPIView):
+
+# Обновить датчик и получить информацию о конкретном датчике
+# PUT (обновление) и GET (получение)
+class SensorDetailView(generics.RetrieveUpdateAPIView):
     queryset = Sensor.objects.all()
     serializer_class = SensorDetailSerializer
+    lookup_field = 'id'
+
+
+# # Изменить датчик
+# # PUT
+# class UpdateSensorView(generics.UpdateAPIView):
+#     queryset = Sensor.objects.all()
+#     serializer_class = SensorDetailSerializer
 
 
 # Добавить измерение
-# UPDATE
+# POST
 class AddMeasurementView(generics.CreateAPIView):
     queryset = Measurement.objects.all()
     serializer_class = MeasurementSerializer
@@ -36,9 +45,9 @@ class GetSensorListView(generics.ListAPIView):
     serializer_class = SensorDetailSerializer
 
 
-# Получить информацию по конкретному датчику
-# GET
-class GetSensorInfoView(generics.RetrieveAPIView):
-    queryset = Sensor.objects.all()
-    serializer_class = SensorDetailSerializer
-    lookup_field = 'id'
+# # Получить информацию по конкретному датчику
+# # GET
+# class GetSensorInfoView(generics.RetrieveAPIView):
+#     queryset = Sensor.objects.all()
+#     serializer_class = SensorDetailSerializer
+#     lookup_field = 'id'
